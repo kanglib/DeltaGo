@@ -6,9 +6,9 @@ import hexchat
 import random
 import re
 
-__module_description__ = "The Seed of Slackbot Go, a GoN AI developed by ShallowMind Corporation"
 __module_name__ = "DeltaGo"
-__module_version__ = "2.0"
+__module_version__ = "2.1"
+__module_description__ = "The Seed of Slackbot Go, a GoN AI developed by ShallowMind Corporation"
 
 dt = datetime.now()
 
@@ -30,8 +30,12 @@ def bot_write_ex_su(channel, s, message, pattern):
         bot_write(channel, message, 1)
 
 def message_cb(word, word_eol, userdata):
+    global dt
+
     c = word[2]
     s = " ".join(word[3:])[1:]
+    if c not in ["#cs322", "#yb"]:
+        return
 
     bot_write_ex(c, s, ":gaon:", "아이도루")
     bot_write_ex(c, s, "~이미늦었다~", "트윗덱")
@@ -50,7 +54,7 @@ def message_cb(word, word_eol, userdata):
 
     if word[0].find("junsoo") != -1:
         dt2 = datetime.now()
-        if (dt2 - dt).total_seconds() > 1199:
+        if (dt2 - dt).total_seconds() >= 1200:
             bot_write(c, "헤헿ㅎ")
         dt = dt2
 
