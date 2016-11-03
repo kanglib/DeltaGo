@@ -55,7 +55,7 @@ def message_cb(word, word_eol, userdata):
     if word[0].find("junsoo") != -1:
         dt2 = datetime.now()
         if (dt2 - dt).total_seconds() >= 1200:
-            bot_write(c, "헤헿ㅎ")
+            bot_write(c, random.choice(["헤헿ㅎ", "머쓱ㅎ"]))
         dt = dt2
 
 hexchat.hook_server("PRIVMSG", message_cb)
