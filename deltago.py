@@ -55,7 +55,7 @@ def message_cb(word, word_eol, userdata):
     bot_write_ex(c, s, "해로운 새", "파랑새")
     bot_write_ex(c, s, random.choice(["~하지말아라~", "~해도된다~", "~선동과 날조~", "~선조와 날동~"]), "[트투][위이][터타]")
     bot_write_ex(c, s, random.choice(["~하지말아라~", "~해도된다~", "~선동과 날조~", "~선조와 날동~"]), "짹짹이")
-    bot_write_ex(c, s, random.choice(["응", "응", "응", "아니", "아니", "않이;"]), "마법의 소라고둥")
+    bot_write_ex(c, s, random.choice(["응", "응", "응", "아니", "아니", "않이;"]), "마법의 소라고[동둥]")
     bot_write_ex_su(c, s, "인생리셋 포탈이 창문 너머에 존재한다.", r"^[\s;]*sudo\s+reboot(\s+now)?[\s;]*$", u)
 
     if u == "junsoo":
