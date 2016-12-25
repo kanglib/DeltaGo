@@ -7,7 +7,7 @@ import random
 import re
 
 __module_name__ = "DeltaGo"
-__module_version__ = "2.3"
+__module_version__ = "2.4"
 __module_description__ = "The Seed of Slackbot Go, a GoN AI developed by ShallowMind Corporation"
 
 dt = datetime.now()
@@ -61,7 +61,7 @@ def message_cb(word, word_eol, userdata):
     if u == "junsoo":
         dt2 = datetime.now()
         if (dt2 - dt).total_seconds() >= 1200:
-            bot_write(c, random.choice(["헤헿ㅎ", "머쓱ㅎ", "대쓱ㅎ"]))
+            bot_write(c, random.choice(["헤헿ㅎ", "머쓱ㅎ", "대쓱ㅎ", "ㅡㅡㅋ"]))
         dt = dt2
 
 hexchat.hook_server("PRIVMSG", message_cb)
