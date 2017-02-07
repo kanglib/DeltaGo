@@ -58,10 +58,4 @@ def message_cb(word, word_eol, userdata):
     bot_write_ex(c, s, random.choice(["응", "응", "응", "아니", "아니", "않이;"]), "마법의 소라고[동둥]")
     bot_write_ex_su(c, s, "인생리셋 포탈이 창문 너머에 존재한다.", r"^[\s;]*sudo\s+reboot(\s+now)?[\s;]*$", u)
 
-    if u == "junsoo":
-        dt2 = datetime.now()
-        if (dt2 - dt).total_seconds() >= 1200:
-            bot_write(c, random.choice(["헤헿ㅎ", "머쓱ㅎ", "대쓱ㅎ", "ㅡㅡㅋ"]))
-        dt = dt2
-
 hexchat.hook_server("PRIVMSG", message_cb)
