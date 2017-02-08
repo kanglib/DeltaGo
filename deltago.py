@@ -1,16 +1,13 @@
 # HexChat w/ Python 3
 """GoN regex challenge...?"""
 
-from datetime import datetime
 import hexchat
 import random
 import re
 
 __module_name__ = "DeltaGo"
-__module_version__ = "2.4"
+__module_version__ = "2.5"
 __module_description__ = "The Seed of Slackbot Go, a GoN AI developed by ShallowMind Corporation"
-
-dt = datetime.now()
 
 def bot_write(channel, message, su=0):
     if su == 0:
@@ -32,8 +29,6 @@ def bot_write_ex_su(channel, s, message, pattern, u):
         bot_write(channel, u + " is not in the sudoers file.  This incident will be reported.")
 
 def message_cb(word, word_eol, userdata):
-    global dt
-
     c = word[2]
     s = " ".join(word[3:])[1:]
     u = word[0].split("!")[0][1:]
