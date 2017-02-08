@@ -1,16 +1,13 @@
 # HexChat w/ Python 3
 """GoN regex challenge...?"""
 
-from datetime import datetime
 import hexchat
 import random
 import re
 
 __module_name__ = "DeltaGo"
-__module_version__ = "2.4"
+__module_version__ = "2.5"
 __module_description__ = "The Seed of Slackbot Go, a GoN AI developed by ShallowMind Corporation"
-
-dt = datetime.now()
 
 def bot_write(channel, message, su=0):
     if su == 0:
@@ -32,8 +29,6 @@ def bot_write_ex_su(channel, s, message, pattern, u):
         bot_write(channel, u + " is not in the sudoers file.  This incident will be reported.")
 
 def message_cb(word, word_eol, userdata):
-    global dt
-
     c = word[2]
     s = " ".join(word[3:])[1:]
     u = word[0].split("!")[0][1:]
@@ -57,11 +52,5 @@ def message_cb(word, word_eol, userdata):
     bot_write_ex(c, s, random.choice(["~하지말아라~", "~해도된다~", "~선동과 날조~", "~선조와 날동~"]), "짹짹이")
     bot_write_ex(c, s, random.choice(["응", "응", "응", "아니", "아니", "않이;"]), "마법의 소라고[동둥]")
     bot_write_ex_su(c, s, "인생리셋 포탈이 창문 너머에 존재한다.", r"^[\s;]*sudo\s+reboot(\s+now)?[\s;]*$", u)
-
-    if u == "junsoo":
-        dt2 = datetime.now()
-        if (dt2 - dt).total_seconds() >= 1200:
-            bot_write(c, random.choice(["헤헿ㅎ", "머쓱ㅎ", "대쓱ㅎ", "ㅡㅡㅋ"]))
-        dt = dt2
 
 hexchat.hook_server("PRIVMSG", message_cb)
