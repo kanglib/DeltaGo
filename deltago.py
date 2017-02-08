@@ -9,6 +9,8 @@ __module_name__ = "DeltaGo"
 __module_version__ = "2.5"
 __module_description__ = "The Seed of Slackbot Go, a GoN AI developed by ShallowMind Corporation"
 
+whitelist = ["#nb", "#test_for", "#yb"]
+
 def bot_write(channel, message, su=0):
     if su == 0:
         p = "*ΔGo$* "
@@ -32,7 +34,7 @@ def message_cb(word, word_eol, userdata):
     c = word[2]
     s = " ".join(word[3:])[1:]
     u = word[0].split("!")[0][1:]
-    if c not in ["#cs322", "#test_for", "#yb"]:
+    if c not in whitelist:
         return
 
     bot_write_ex(c, s, ":gaon:", "아이도루")
